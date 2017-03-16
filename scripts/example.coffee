@@ -38,10 +38,12 @@ module.exports = (robot) ->
   robot.react (res) ->
     message = res.message
     user = message.item_user.name
+    sending_user = message.user.name
 
     if message.type == "added" and message.reaction == "increment"
-      count = (robot.brain.get(user) or 0) + 1
-      robot.brain.set user, count
+      if user != sending_user
+        count = (robot.brain.get(user) or 0) + 1
+        robot.brain.set user, count
 
   robot.hear /// #{botname} \s+ @([a-z0-9_\-\.]+) ///i, (msg) ->
      user = msg.match[1].replace(/\-+$/g, '')
