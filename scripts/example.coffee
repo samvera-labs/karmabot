@@ -35,6 +35,14 @@ module.exports = (robot) ->
   robot.hear /// #{botname} \s+ help ///i, (msg) ->
      msg.send "commands: tally|help|@username"
 
+  robot.react (res) ->
+    message = res.message
+    user = message.item_user.name
+
+    if message.type == "added" and message.reaction == "increment"
+      count = (robot.brain.get(user) or 0) + 1
+      robot.brain.set user, count
+
   robot.hear /// #{botname} \s+ @([a-z0-9_\-\.]+) ///i, (msg) ->
      user = msg.match[1].replace(/\-+$/g, '')
      count = robot.brain.get(user)
