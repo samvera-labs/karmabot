@@ -40,6 +40,12 @@ This adapter uses the following environment variables:
 
 To add or remove your bot from specific channels or private groups, you can use the /kick and /invite slash commands that are built into Slack.
 
+## Contributing
+
+If you're working on a PR for this project, create a feature branch off of `main`.
+
+This repository follows the [Samvera Community Code of Conduct](https://samvera.atlassian.net/wiki/spaces/samvera/pages/405212316/Code+of+Conduct) and [language recommendations](https://github.com/samvera/maintenance/blob/master/templates/CONTRIBUTING.md#language).  Please ***do not*** create a branch called `master` for this repository or as part of your pull request; the branch will either need to be removed or renamed before it can be considered for inclusion in the code base and history of this repository.
+
 ## Copyright
 
 Copyright &copy; Slack Technologies, Inc. MIT License; see LICENSE for further details.
